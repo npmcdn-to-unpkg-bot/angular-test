@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="phoneCtrl">
+        <div ng-repeat="button in modes">
+            <label>
+                <input type="radio" ng-model="data.mode" value="{{button.value}}" name="modes" />
+                {{button.label}}
+            </label>
+        </div>
+        <div ng-switch on="data.mode">
+            <div ng-switch-when="Tablets">
+                <ul>
+                    <li ng-repeat="tablet in tablets">
+                        <b>{{tablet.name}}</b>
+                        <p>Цена: {{tablet.price}} $</p>
+                        <p>Производитель: {{tablet.company}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div ng-switch-when="Phones">
+                <ul>
+                    <li ng-repeat="phone in phones">
+                        <b>{{phone.name}}</b>
+                        <p>Цена: {{phone.price}} $</p>
+                        <p>Производитель: {{phone.company.name}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div ng-switch-default>
+                Выберите товары для просмотра
+            </div>
+        </div>
+    </div>
+    <script src="angular-1.5.8/angular.js"></script>
+    <script src="controller/phoneController.js"></script>
+</body>
+</html>
