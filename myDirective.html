@@ -1,0 +1,21 @@
+﻿<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/mystyles.css" />
+</head>
+<body>
+    <div ng-controller="QuestionCtrl">
+        <div class="quest">
+            <h3>{{question.text}}</h3>
+            <p>{{question.author}} </p> <p><i>{{question.date}}</i></p>
+        </div>
+        <h3>Ответы</h3>
+        <div answer-list="question"></div>
+    </div>
+    <script src="angular-1.5.8/angular.js"></script>
+    <script src="controller/QuestionController.js"></script>
+    <script src="controller/answerList.js"></script>
+
+</body>
+</html>
