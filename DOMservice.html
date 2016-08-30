@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="DomCtrl">
+        <button ng-click="getAlert('Hell to World')">Do not click</button>
+        <button id="angButton">Click</button>
+    </div>
+    <script src="angular-1.5.8/angular.js"></script>
+    <script>
+        var myApp = angular.module("myApp", []);
+        myApp.controller("DomCtrl", function ($scope, $window, $document) {
+            $scope.getAlert = function (text) {
+                $window.alert(text);
+            };
+            $document.find("button").on("click", function (event) {
+                $window.alert(event.target.innerText);
+            });
+        });
+    </script>
+</body>
+</html>
